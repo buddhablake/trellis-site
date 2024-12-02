@@ -8,17 +8,10 @@ import Image from "next/image";
 const testimonials = [
   {
     quote:
-      "The Cultivate Assessment helped me see my business's unique strengths in a whole new light. Now I'm growing in a way that feels authentic to me.",
-    name: "Sarah Chen",
-    business: "Wellness Coach",
-    image: "/testimonials/sarah.jpg",
-  },
-  {
-    quote:
-      "Finally, a framework that doesn't try to force my business into someone else's mold. The insights were truly transformative.",
-    name: "Marcus Rodriguez",
-    business: "Artisanal Baker",
-    image: "/testimonials/marcus.jpg",
+      "Starting my own salon felt overwhelming until I worked with Trellis. They helped me discover my unique value in the market and translate it into a clear brand strategy. What sets them apart is how they truly understand small businesses and help you grow in ways that feel authentic. I now have complete confidence in my business's direction and value.",
+    name: "Nic Graham",
+    business: "Owner, Nics & Cuts",
+    image: "/testimonials/nic_graham.jpeg",
   },
 ] as const;
 
@@ -30,7 +23,7 @@ export function SocialProof() {
           Growing Their Own Way
         </h2>
       </ScrollReveal>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 gap-8">
         {testimonials.map((testimonial, index) => (
           <ScrollReveal key={testimonial.name} delay={index * 0.2}>
             <Card className="border-sage/20 hover:border-sage/40 transition-colors">
