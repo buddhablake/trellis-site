@@ -9,7 +9,7 @@ export function FinalCTA() {
     <Section className="bg-forest text-cream relative">
       <div className="max-w-3xl mx-auto text-center relative z-10">
         <ScrollReveal>
-          <h2 className="text-h2 font-heading font-semibold text-forest mb-6">
+          <h2 className="text-h2 font-heading font-semibold text-cream mb-6">
             Let&apos;s grow together
           </h2>
           <p className="text-lg text-cream/80 mb-8">
