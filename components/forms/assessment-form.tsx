@@ -44,10 +44,21 @@ export function AssessmentForm() {
   async function onSubmit(data: FormValues) {
     setIsSubmitting(true);
     try {
-      // TODO: Implement form submission
-      await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulated delay
+      const response = await fetch("/api/submit-assessment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit assessment");
+      }
+
       setIsSuccess(true);
     } catch (error) {
+      console.error("Error:", error);
       form.setError("root", {
         message: "Something went wrong. Please try again.",
       });

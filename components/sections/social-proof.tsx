@@ -1,24 +1,26 @@
 "use client";
 
-import { Section } from "@/components/layout/section"
-import { Card, CardContent } from "@/components/ui/card"
-import { ScrollReveal } from "@/components/ui/scroll-reveal"
-import Image from "next/image"
+import { Section } from "@/components/layout/section";
+import { Card, CardContent } from "@/components/ui/card";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import Image from "next/image";
 
 const testimonials = [
   {
-    quote: "The Cultivate Assessment helped me see my business's unique strengths in a whole new light. Now I'm growing in a way that feels authentic to me.",
+    quote:
+      "The Cultivate Assessment helped me see my business's unique strengths in a whole new light. Now I'm growing in a way that feels authentic to me.",
     name: "Sarah Chen",
     business: "Wellness Coach",
     image: "/testimonials/sarah.jpg",
   },
   {
-    quote: "Finally, a framework that doesn't try to force my business into someone else's mold. The insights were truly transformative.",
+    quote:
+      "Finally, a framework that doesn't try to force my business into someone else's mold. The insights were truly transformative.",
     name: "Marcus Rodriguez",
     business: "Artisanal Baker",
     image: "/testimonials/marcus.jpg",
   },
-]
+] as const;
 
 export function SocialProof() {
   return (
@@ -30,7 +32,7 @@ export function SocialProof() {
       </ScrollReveal>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {testimonials.map((testimonial, index) => (
-          <ScrollReveal key={index} delay={index * 0.2}>
+          <ScrollReveal key={testimonial.name} delay={index * 0.2}>
             <Card className="border-sage/20 hover:border-sage/40 transition-colors">
               <CardContent className="pt-6">
                 <div className="flex items-start gap-4">
@@ -63,5 +65,5 @@ export function SocialProof() {
         ))}
       </div>
     </Section>
-  )
+  );
 }

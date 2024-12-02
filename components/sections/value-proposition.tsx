@@ -1,14 +1,14 @@
 "use client";
 
-import { Section } from "@/components/layout/section"
-import { ScrollReveal } from "@/components/ui/scroll-reveal"
+import { Section } from "@/components/layout/section";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const benefits = [
   "See your natural strengths clearly",
   "Understand your authentic market position",
   "Find growth opportunities that feel right",
   "Build confidence in your approach",
-]
+] as const;
 
 export function ValueProposition() {
   return (
@@ -21,13 +21,16 @@ export function ValueProposition() {
               Cultivate Your Unique Value
             </h2>
             <p className="text-lg text-soil/80 mb-8">
-              Within your business lies unique potential waiting to be cultivated. Stop struggling to fit someone else's model of success. Start growing in ways that feel natural and right for you.
+              Within your business lies unique potential waiting to be
+              cultivated. Stop struggling to fit someone else's model of
+              success. Start growing in ways that feel natural and right for
+              you.
             </p>
           </div>
         </ScrollReveal>
         <div className="space-y-6">
           {benefits.map((benefit, index) => (
-            <ScrollReveal key={index} delay={index * 0.1}>
+            <ScrollReveal key={benefit} delay={index * 0.1}>
               <div className="flex items-start gap-4">
                 <div className="w-6 h-6 rounded-full bg-sage flex items-center justify-center mt-1">
                   <svg
@@ -51,5 +54,5 @@ export function ValueProposition() {
         </div>
       </div>
     </Section>
-  )
+  );
 }

@@ -1,8 +1,8 @@
 "use client";
 
-import { Section } from "@/components/layout/section"
-import { AssessmentDialog } from "@/components/forms/assessment-dialog"
-import { ScrollReveal } from "@/components/ui/scroll-reveal"
+import { Section } from "@/components/layout/section";
+import { AssessmentDialog } from "@/components/forms/assessment-dialog";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function FinalCTA() {
   return (
@@ -13,10 +13,13 @@ export function FinalCTA() {
             Ready to Grow Your Way?
           </h2>
           <p className="text-lg text-cream/80 mb-8">
-            Take the first step towards authentic business growth with our Cultivate Assessment.
-            It's free, takes just 15-20 minutes, and could transform how you see your business.
+            Take the first step towards authentic business growth with our
+            Cultivate Assessment. It's free, takes just 15-20 minutes, and could
+            transform how you see your business.
           </p>
-          <AssessmentDialog 
+        </ScrollReveal>
+        <ScrollReveal delay={0.2}>
+          <AssessmentDialog
             className="bg-cream text-forest hover:bg-cream/90 transition-colors"
             variant="outline"
           />
@@ -24,5 +27,5 @@ export function FinalCTA() {
       </div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(156,175,136,0.1)_0%,transparent_70%)]" />
     </Section>
-  )
+  );
 }
