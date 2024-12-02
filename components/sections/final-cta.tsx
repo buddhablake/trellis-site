@@ -14,8 +14,8 @@ export function FinalCTA() {
           </h2>
           <p className="text-lg text-cream/80 mb-8">
             Take the first step towards authentic business growth with our
-            Cultivate Assessment. It's free, takes just 15-20 minutes, and could
-            transform how you see your business.
+            Cultivate Assessment. It&apos;s free, takes just 15-20 minutes, and
+            could transform how you see your business.
           </p>
         </ScrollReveal>
         <ScrollReveal delay={0.2}>

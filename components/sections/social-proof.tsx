@@ -47,7 +47,7 @@ export function SocialProof() {
                   </div>
                   <div>
                     <blockquote className="text-soil/80 mb-4 italic">
-                      "{testimonial.quote}"
+                      &quot;{testimonial.quote}&quot;
                     </blockquote>
                     <cite className="not-italic">
                       <div className="font-heading font-semibold text-forest">
