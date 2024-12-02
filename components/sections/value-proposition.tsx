@@ -21,10 +21,7 @@ export function ValueProposition() {
               Cultivate Your Unique Value
             </h2>
             <p className="text-lg text-soil/80 mb-8">
-              Within your business lies unique potential waiting to be
-              cultivated. Stop struggling to fit someone else's model of
-              success. Start growing in ways that feel natural and right for
-              you.
+              Here&apos;s how we can help your business grow
             </p>
           </div>
         </ScrollReveal>
