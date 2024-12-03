@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { Question, ASSESSMENT_QUESTIONS } from "@/types/assessment";
+import { ASSESSMENT_QUESTIONS } from "@/types/assessment";
 import { ProgressBar } from "./ProgressBar";
 import { QuestionCard } from "./QuestionCard";
 

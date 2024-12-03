@@ -11,7 +11,7 @@ interface QuestionCardProps {
   onPrevious: () => void;
   onSubmit: () => void;
   currentQuestion: number;
-  totalQuestions: number;
+  isSubmitting?: boolean;
 }
 
 export function QuestionCard({
@@ -24,7 +24,7 @@ export function QuestionCard({
   onPrevious,
   onSubmit,
   currentQuestion,
-  totalQuestions,
+  isSubmitting,
 }: QuestionCardProps) {
   const [showEncouragement, setShowEncouragement] = useState(false);
   const MIN_CHARS = 100;
@@ -93,9 +93,10 @@ export function QuestionCard({
         ) : (
           <button
             onClick={handleSubmit}
-            className="px-6 py-2 bg-forest text-white rounded hover:bg-forest/90"
+            disabled={isSubmitting}
+            className="px-6 py-2 bg-forest text-white rounded hover:bg-forest/90 disabled:opacity-50"
           >
-            Submit
+            {isSubmitting ? "Submitting..." : "Submit"}
           </button>
         )}
       </div>

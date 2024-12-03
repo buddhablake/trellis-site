@@ -7,13 +7,13 @@ export default function AssessmentComplete() {
 
       <div className="bg-white p-8 rounded-lg shadow-sm">
         <p className="text-xl mb-6">
-          Thank you for completing your assessment. We've received your
+          Thank you for completing your assessment. We&apos;ve received your
           responses and will review them carefully.
         </p>
 
         <p className="text-gray-600 mb-8">
-          We'll be in touch soon to discuss your insights and explore how we can
-          help your business grow.
+          We&apos;ll be in touch soon to discuss your insights and explore how
+          we can help your business grow.
         </p>
 
         <a
