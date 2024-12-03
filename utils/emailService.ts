@@ -15,8 +15,8 @@ export async function sendConfirmationEmail({
 }: EmailParams): Promise<boolean> {
   try {
     const response = await emailjs.send(
-      process.env.EMAILJS_SERVICE_ID!,
-      process.env.EMAILJS_TEMPLATE_ID!,
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
       {
         to_name: firstName,
         business_name: businessName,
@@ -30,8 +30,8 @@ export async function sendConfirmationEmail({
         link: `https://trellisgrow.com/assessment/${pageId}`,
       },
       {
-        publicKey: process.env.EMAILJS_PUBLIC_KEY!,
-        privateKey: process.env.EMAILJS_PRIVATE_KEY!,
+        publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+        privateKey: process.env.NEXT_PUBLIC_EMAILJS_PRIVATE_KEY!,
       }
     );
 

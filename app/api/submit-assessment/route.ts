@@ -3,7 +3,7 @@ import { Client } from "@notionhq/client";
 import { sendConfirmationEmail } from "@/utils/emailService";
 
 const notion = new Client({
-  auth: process.env.NOTION_API_KEY,
+  auth: process.env.NEXT_PUBLIC_NOTION_API_KEY,
 });
 
 export async function POST(request: Request) {
@@ -14,7 +14,7 @@ export async function POST(request: Request) {
 
     const response = await notion.pages.create({
       parent: {
-        database_id: process.env.NOTION_DATABASE_ID!,
+        database_id: process.env.NEXT_PUBLIC_NOTION_DATABASE_ID!,
       },
       properties: {
         Name: {
