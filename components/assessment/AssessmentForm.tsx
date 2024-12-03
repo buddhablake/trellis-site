@@ -124,7 +124,7 @@ export function AssessmentForm() {
         onPrevious={handlePrevious}
         onSubmit={handleSubmit}
         currentQuestion={currentQuestionIndex + 1}
-        totalQuestions={ASSESSMENT_QUESTIONS.length}
+        isSubmitting={isSubmitting}
       />
 
       {error && (
