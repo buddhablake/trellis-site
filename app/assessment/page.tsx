@@ -1,9 +1,9 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 
-export default function AssessmentPage() {
+function AssessmentContent() {
   const searchParams = useSearchParams();
   const pageId = searchParams.get("id");
   const [status, setStatus] = useState<
@@ -71,5 +71,13 @@ export default function AssessmentPage() {
 
       {error && <p className="mt-4 text-red-600">Error: {error}</p>}
     </div>
+  );
+}
+
+export default function AssessmentPage() {
+  return (
+    <Suspense fallback={<div className="p-4">Loading...</div>}>
+      <AssessmentContent />
+    </Suspense>
   );
 }

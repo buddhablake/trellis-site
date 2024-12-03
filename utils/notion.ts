@@ -16,20 +16,26 @@ export async function validateNotionPageId(pageId: string): Promise<boolean> {
 
 export async function updateNotionPage(pageId: string, message: string) {
   try {
-    const response = await notion.pages.update({
-      page_id: pageId,
-      properties: {
-        "Test Update": {
-          rich_text: [
-            {
-              text: {
-                content: message,
+    const response = await notion.blocks.children.append({
+      block_id: pageId,
+      children: [
+        {
+          object: "block",
+          type: "paragraph",
+          paragraph: {
+            rich_text: [
+              {
+                type: "text",
+                text: {
+                  content: message,
+                },
               },
-            },
-          ],
+            ],
+          },
         },
-      },
+      ],
     });
+
     return response;
   } catch (error) {
     console.error("Error updating Notion page:", error);
