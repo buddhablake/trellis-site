@@ -3,7 +3,7 @@ import { Client } from "@notionhq/client";
 import { sendConfirmationEmail } from "@/utils/emailService";
 
 const notion = new Client({
-  auth: process.env.NEXT_PUBLIC_NOTION_API_KEY,
+  auth: process.env.NEXT_PUBLIC_NOTION_API,
 });
 
 export async function POST(request: Request) {

@@ -30,8 +30,8 @@ export async function sendConfirmationEmail({
         link: `https://trellisgrow.com/assessment/${pageId}`,
       },
       {
-        publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
-        privateKey: process.env.NEXT_PUBLIC_EMAILJS_PRIVATE_KEY!,
+        publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC!,
+        privateKey: process.env.NEXT_PUBLIC_EMAILJS_PRIVATE!,
       }
     );
 
