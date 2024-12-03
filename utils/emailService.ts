@@ -27,7 +27,7 @@ export async function sendConfirmationEmail({
         subject: "Take Your Next Step with Cultivate | Your Assessment Awaits",
         message:
           "Your assessment is ready to be completed. Click the link below to get started.",
-        link: `https://trellisgrow.com/assessment/${pageId}`,
+        link: `https://trellisgrow.com/assessment?id=${pageId}`,
       },
       {
         publicKey: process.env.EMAILJS_PUBLIC_KEY!,
