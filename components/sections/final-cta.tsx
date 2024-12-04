@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function FinalCTA() {
   return (
-    <Section className="bg-forest text-cream relative">
+    <Section className="bg-forest/80 text-cream relative">
       <div className="max-w-3xl mx-auto text-center relative z-10">
         <ScrollReveal>
           <h2 className="text-h2 font-heading font-semibold text-cream mb-6">
@@ -25,7 +25,6 @@ export function FinalCTA() {
           />
         </ScrollReveal>
       </div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(156,175,136,0.1)_0%,transparent_70%)]" />
     </Section>
   );
 }

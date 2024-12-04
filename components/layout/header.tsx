@@ -22,8 +22,8 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-forest/80",
-        isScrolled && "backdrop-blur-md shadow-sm"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-forest",
+        isScrolled && "bg-forest/80 backdrop-blur-md shadow-sm"
       )}
     >
       <Container className="flex items-center justify-between h-20">
