@@ -1,4 +1,5 @@
 import { Client } from "@notionhq/client";
+import { BlockObjectRequest } from "@notionhq/client/build/src/api-endpoints";
 
 const notion = new Client({
   auth: process.env.NOTION_API_KEY,
@@ -25,7 +26,7 @@ export async function updateNotionPage(
 ) {
   try {
     // Create blocks for each question-answer pair
-    const blocks = answers.map((qa) => ({
+    const blocks: BlockObjectRequest[] = answers.map((qa) => ({
       object: "block",
       type: "paragraph",
       paragraph: {
