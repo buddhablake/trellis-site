@@ -17,10 +17,13 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <h1 className="text-h1 font-heading font-semibold text-forest mb-6">
-            Discover Your Natural Path to Growth
+            Feeling stuck between growing your business and staying true to your
+            values?
           </h1>
           <p className="text-lg text-soil/80 mb-8">
-            We&apos;re here to help you cultivate sustainable growth
+            Take the Cultivate Assessment - a free 15-minute questionnaire that
+            helps small business owners get clear about their unique value and
+            find their natural path to growth.
           </p>
           <AssessmentDialog className="bg-forest hover:bg-forest/90" />
         </motion.div>
