@@ -3,7 +3,7 @@ import { validateNotionPageId, updateNotionPage } from "@/utils/notion";
 
 export async function POST(request: Request) {
   try {
-    const { pageId, message } = await request.json();
+    const { pageId, answers } = await request.json();
 
     if (!pageId) {
       return NextResponse.json(
@@ -21,8 +21,8 @@ export async function POST(request: Request) {
       );
     }
 
-    // Update the page
-    const response = await updateNotionPage(pageId, message);
+    // Update the page with formatted answers
+    const response = await updateNotionPage(pageId, answers);
 
     return NextResponse.json({ success: true, data: response });
   } catch (error) {

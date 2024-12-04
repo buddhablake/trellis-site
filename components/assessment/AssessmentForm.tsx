@@ -67,10 +67,11 @@ export function AssessmentForm() {
     setError(null);
 
     try {
-      // Format answers in Markdown
-      const formattedAnswers = ASSESSMENT_QUESTIONS.map(
-        (q) => `## ${q.text}\n\n${answers[q.id] || "*No answer provided*"}\n\n`
-      ).join("");
+      // Format answers as an array of question-answer pairs
+      const formattedAnswers = ASSESSMENT_QUESTIONS.map((q) => ({
+        question: q.text,
+        answer: answers[q.id] || "*No answer provided*",
+      }));
 
       const response = await fetch("/api/update-assessment", {
         method: "POST",
@@ -79,7 +80,7 @@ export function AssessmentForm() {
         },
         body: JSON.stringify({
           pageId,
-          message: formattedAnswers,
+          answers: formattedAnswers,
         }),
       });
 
@@ -90,7 +91,7 @@ export function AssessmentForm() {
       // Clear localStorage after successful submission
       localStorage.removeItem(`assessment-${pageId}`);
 
-      // Redirect to success page or show success message
+      // Redirect to success page
       window.location.href = "/assessment-complete";
     } catch (err) {
       setError(
