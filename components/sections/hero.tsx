@@ -16,7 +16,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="text-h1 font-heading font-semibold text-forest mb-6">
+          <h1 className="text-5xl font-heading font-semibold text-forest mb-6">
             Feeling stuck between growing your business and staying true to your
             values?
           </h1>
