@@ -13,6 +13,8 @@ interface Answers {
 export function AssessmentForm() {
   const searchParams = useSearchParams();
   const pageId = searchParams.get("id");
+  const email = searchParams.get("email");
+  const firstName = searchParams.get("firstName");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Answers>(() => {
     // Try to load saved answers from localStorage
@@ -73,6 +75,7 @@ export function AssessmentForm() {
         answer: answers[q.id] || "*No answer provided*",
       }));
 
+      // First, update the assessment in Notion
       const response = await fetch("/api/update-assessment", {
         method: "POST",
         headers: {
@@ -86,6 +89,23 @@ export function AssessmentForm() {
 
       if (!response.ok) {
         throw new Error("Failed to submit assessment");
+      }
+
+      // Then, send the completion email
+      const emailResponse = await fetch("/api/send-assessment-completion", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: decodeURIComponent(email!),
+          firstName: decodeURIComponent(firstName!),
+        }),
+      });
+
+      if (!emailResponse.ok) {
+        console.error("Failed to send completion email");
+        // Continue with redirect even if email fails
       }
 
       // Clear localStorage after successful submission

@@ -54,6 +54,13 @@ export async function POST(request: Request) {
       },
     });
 
+    // Update the link to include encoded email and firstName
+    const assessmentLink = `https://trellisgrow.com/assessment?id=${
+      response.id
+    }&email=${encodeURIComponent(email)}&firstName=${encodeURIComponent(
+      firstName
+    )}`;
+
     // Send confirmation email using new email service
     const emailSent = await sendEmail({
       templateId: process.env.EMAILJS_ASSESSMENT_TEMPLATE_ID!,
@@ -64,7 +71,7 @@ export async function POST(request: Request) {
       from_name: "Blake @ TrellisGrow",
       reply_to: "blake@trellisgrow.com",
       subject: "Take Your Next Step with Cultivate | Your Assessment Awaits",
-      link: `https://trellisgrow.com/assessment?id=${response.id}`,
+      link: assessmentLink,
     });
 
     if (!emailSent) {
