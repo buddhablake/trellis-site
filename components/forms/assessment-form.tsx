@@ -20,7 +20,26 @@ const formSchema = z.object({
   firstName: z.string().min(2, "First name is required"),
   lastName: z.string().min(2, "Last name is required"),
   businessName: z.string().min(2, "Business name is required"),
-  businessWebsite: z.string().url("Please enter a valid website URL"),
+  businessWebsite: z
+    .string()
+    .min(1, "Website is required")
+    .transform((val) => val.trim())
+    .refine(
+      (val) => {
+        // Basic domain validation - must contain at least one dot
+        // and only allowed characters
+        const domainRegex = /^[a-zA-Z0-9][a-zA-Z0-9-._]*\.[a-zA-Z]{2,}$/;
+        return domainRegex.test(val);
+      },
+      { message: "Please enter a valid domain (e.g., example.com)" }
+    )
+    .transform((val) => {
+      // Add https:// prefix if not present
+      if (!/^https?:\/\//i.test(val)) {
+        return `https://${val}`;
+      }
+      return val;
+    }),
   email: z.string().email("Please enter a valid email address"),
 });
 
@@ -124,7 +143,7 @@ export function AssessmentForm() {
                   <FormItem>
                     <FormLabel>Business Website</FormLabel>
                     <FormControl>
-                      <Input {...field} type="url" />
+                      <Input {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

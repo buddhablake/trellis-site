@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { Client } from "@notionhq/client";
-import { sendConfirmationEmail } from "@/utils/emailService";
+import { sendEmail } from "@/utils/emailService";
 
 const notion = new Client({
   auth: process.env.NOTION_API_KEY,
@@ -9,9 +9,9 @@ const notion = new Client({
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-
     const { firstName, lastName, businessName, businessWebsite, email } = body;
 
+    // Create the Notion page
     const response = await notion.pages.create({
       parent: {
         database_id: process.env.NOTION_DATABASE_ID!,
@@ -44,6 +44,7 @@ export async function POST(request: Request) {
       },
     });
 
+    // Update page with its own ID
     await notion.pages.update({
       page_id: response.id,
       properties: {
@@ -53,12 +54,17 @@ export async function POST(request: Request) {
       },
     });
 
-    // Send confirmation email
-    const emailSent = await sendConfirmationEmail({
-      firstName,
-      email,
-      businessName,
-      pageId: response.id,
+    // Send confirmation email using new email service
+    const emailSent = await sendEmail({
+      templateId: process.env.EMAILJS_ASSESSMENT_TEMPLATE_ID!,
+      toEmail: email,
+      toName: firstName,
+      business_name: businessName,
+      page_id: response.id,
+      from_name: "Blake @ TrellisGrow",
+      reply_to: "blake@trellisgrow.com",
+      subject: "Take Your Next Step with Cultivate | Your Assessment Awaits",
+      link: `https://trellisgrow.com/assessment?id=${response.id}`,
     });
 
     if (!emailSent) {
